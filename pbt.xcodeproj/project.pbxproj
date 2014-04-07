@@ -21,6 +21,8 @@
 		D0D32B4B18F2BCBD0093176A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D32B2D18F2BCBD0093176A /* UIKit.framework */; };
 		D0D32B5318F2BCBD0093176A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0D32B5118F2BCBD0093176A /* InfoPlist.strings */; };
 		D0D32B5518F2BCBD0093176A /* pbtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D32B5418F2BCBD0093176A /* pbtTests.m */; };
+		D0D32B5F18F2BD1E0093176A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D32B5E18F2BD1E0093176A /* AddressBook.framework */; };
+		D0D32B6318F2CD240093176A /* utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D32B6218F2CD240093176A /* utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		D0D32B5018F2BCBD0093176A /* pbtTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "pbtTests-Info.plist"; sourceTree = "<group>"; };
 		D0D32B5218F2BCBD0093176A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D0D32B5418F2BCBD0093176A /* pbtTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pbtTests.m; sourceTree = "<group>"; };
+		D0D32B5E18F2BD1E0093176A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		D0D32B6118F2CD240093176A /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		D0D32B6218F2CD240093176A /* utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = utils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0D32B5F18F2BD1E0093176A /* AddressBook.framework in Frameworks */,
 				D0D32B2C18F2BCBD0093176A /* CoreGraphics.framework in Frameworks */,
 				D0D32B2E18F2BCBD0093176A /* UIKit.framework in Frameworks */,
 				D0D32B2A18F2BCBD0093176A /* Foundation.framework in Frameworks */,
@@ -101,6 +107,7 @@
 		D0D32B2818F2BCBD0093176A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0D32B5E18F2BD1E0093176A /* AddressBook.framework */,
 				D0D32B2918F2BCBD0093176A /* Foundation.framework */,
 				D0D32B2B18F2BCBD0093176A /* CoreGraphics.framework */,
 				D0D32B2D18F2BCBD0093176A /* UIKit.framework */,
@@ -112,6 +119,7 @@
 		D0D32B2F18F2BCBD0093176A /* pbt */ = {
 			isa = PBXGroup;
 			children = (
+				D0D32B6018F2CD140093176A /* Debug */,
 				D0D32B3818F2BCBD0093176A /* AppDelegate.h */,
 				D0D32B3918F2BCBD0093176A /* AppDelegate.m */,
 				D0D32B3B18F2BCBD0093176A /* Main.storyboard */,
@@ -150,6 +158,15 @@
 				D0D32B5118F2BCBD0093176A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D0D32B6018F2CD140093176A /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				D0D32B6118F2CD240093176A /* utils.h */,
+				D0D32B6218F2CD240093176A /* utils.m */,
+			);
+			name = Debug;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +269,7 @@
 				D0D32B4018F2BCBD0093176A /* ViewController.m in Sources */,
 				D0D32B3A18F2BCBD0093176A /* AppDelegate.m in Sources */,
 				D0D32B3618F2BCBD0093176A /* main.m in Sources */,
+				D0D32B6318F2CD240093176A /* utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
