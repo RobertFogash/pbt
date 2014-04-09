@@ -58,10 +58,15 @@
                 CFStringRef personOrganization = ABRecordCopyValue(aPerson, kABPersonOrganizationProperty);
                 CFStringRef personJobTitle = ABRecordCopyValue(aPerson, kABPersonJobTitleProperty);
                 CFStringRef personDepartmant = ABRecordCopyValue(aPerson, kABPersonDepartmentProperty);
-                ABMutableMultiValueRef personEmails = ABRecordCopyValue(aPerson, kABPersonEmailProperty); //<--- multi ref
+                ABMultiValueRef personEmails = ABRecordCopyValue(aPerson, kABPersonEmailProperty);
                 CFDateRef personBirthDate = ABRecordCopyValue(aPerson, kABPersonBirthdayProperty);
                 CFStringRef personNote = ABRecordCopyValue(aPerson, kABPersonNoteProperty);
-                ABMutableMultiValueRef personPhones = ABRecordCopyValue(aPerson, kABPersonPhoneProperty);
+                ABMultiValueRef personPhones = ABRecordCopyValue(aPerson, kABPersonPhoneProperty);
+                ABMultiValueRef personAddress = ABRecordCopyValue(aPerson, kABPersonAddressProperty);
+                ABMultiValueRef personInstantMessage = ABRecordCopyValue(aPerson, kABPersonInstantMessageProperty);
+                ABMultiValueRef personSocialProfile = ABRecordCopyValue(aPerson, kABPersonSocialProfileProperty);
+                ABMultiValueRef personURL = ABRecordCopyValue(aPerson, kABPersonURLProperty);
+                ABMultiValueRef personRelatedNames = ABRecordCopyValue(aPerson, kABPersonRelatedNamesProperty);
                 
                 bool hasImgData = ABPersonHasImageData(aPerson);
                 if (hasImgData) {
@@ -83,6 +88,45 @@
                     CFStringRef label = ABMultiValueCopyLabelAtIndex(personEmails, i);
                     CFStringRef email = ABMultiValueCopyValueAtIndex(personEmails, i);
                     NSLog(@"%@ : %@", label, email);
+                }
+                
+                CFIndex addressCount = ABMultiValueGetCount(personAddress);
+                for (CFIndex i=0; i<addressCount; ++i) {
+                    CFStringRef label = ABMultiValueCopyLabelAtIndex(personAddress, i);
+                    CFStringRef email = ABMultiValueCopyValueAtIndex(personAddress, i);
+                    NSLog(@"%@ : %@", label, email);
+                }
+                
+                CFIndex instantMessageCount = ABMultiValueGetCount(personInstantMessage);
+                for (CFIndex i=0; i<instantMessageCount; ++i) {
+                    CFStringRef label = ABMultiValueCopyLabelAtIndex(personInstantMessage, i);
+                    CFStringRef email = ABMultiValueCopyValueAtIndex(personInstantMessage, i);
+                    NSLog(@"%@ : %@", label, email);
+                }
+                
+                NSLog(@"Social profile");
+                CFIndex socialProfileCount = ABMultiValueGetCount(personSocialProfile);
+                for (CFIndex i=0; i<socialProfileCount; ++i) {
+                    CFStringRef label = ABMultiValueCopyLabelAtIndex(personSocialProfile, i);
+                    CFStringRef email = ABMultiValueCopyValueAtIndex(personSocialProfile, i);
+                    NSLog(@"%@ : %@", label, email);
+                }
+                
+                NSLog(@"Person URL");
+                CFIndex urlCount = ABMultiValueGetCount(personURL);
+                for (CFIndex i=0; i<urlCount; ++i) {
+                    CFStringRef key = ABMultiValueCopyLabelAtIndex(personURL, i);
+                    CFStringRef value = ABMultiValueCopyValueAtIndex(personURL, i);
+                    NSLog(@"%@ : %@", key, value);
+                }
+               
+                
+                NSLog(@"Person related names");
+                CFIndex relatedCount = ABMultiValueGetCount(personRelatedNames);
+                for (CFIndex i=0; i<relatedCount; ++i) {
+                    CFStringRef key = ABMultiValueCopyLabelAtIndex(personRelatedNames, i);
+                    CFStringRef value = ABMultiValueCopyValueAtIndex(personRelatedNames, i);
+                    NSLog(@"%@ : %@", key, value);
                 }
                 
                 NSLog(@"Name : %@ %@ %@ %@",personPrefix, personFirstName, personLastName, personSuffics);
